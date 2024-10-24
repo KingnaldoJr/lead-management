@@ -6,6 +6,7 @@ import dev.rmjr.leadmanagement.infrastructure.entity.ZipCodeSearchHistoryEntity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -20,7 +21,7 @@ public class ZipCodeHistoryRepositoryImpl implements ZipCodeHistoryRepository {
                 .id(UUID.randomUUID())
                 .zipcode(zipCode)
                 .response(address)
-                .createdAt(LocalDateTime.now())
+                .createdAt(Timestamp.valueOf(LocalDateTime.now()))
                 .build());
     }
 }

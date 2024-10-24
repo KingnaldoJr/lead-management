@@ -1,5 +1,6 @@
 package dev.rmjr.leadmanagement.domain.entity;
 
+import dev.rmjr.leadmanagement.domain.util.Patterns;
 import lombok.Builder;
 import lombok.Getter;
 
@@ -103,7 +104,7 @@ public class Address {
         if (zipCode.length() != 8)
             throw new IllegalArgumentException("zipCode must be 8 characters");
 
-        if (!zipCode.matches("\\d{8}"))
+        if (!zipCode.matches(Patterns.ZIPCODE))
             throw new IllegalArgumentException("zipCode must contain only numbers");
 
         this.zipCode = zipCode;

@@ -2,15 +2,12 @@ package dev.rmjr.leadmanagement.infrastructure.entity;
 
 import dev.rmjr.leadmanagement.domain.entity.Address;
 import io.hypersistence.utils.hibernate.type.json.JsonBinaryType;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.Type;
 import org.springframework.data.annotation.CreatedDate;
 
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 import java.util.UUID;
 
 @Getter
@@ -31,6 +28,7 @@ public class ZipCodeSearchHistoryEntity {
     @Column(columnDefinition = "jsonb")
     private Address response;
 
+    @Temporal(TemporalType.TIMESTAMP)
     @CreatedDate
-    private LocalDateTime createdAt;
+    private Timestamp createdAt;
 }

@@ -13,7 +13,6 @@ import java.util.Optional;
 @Repository
 public class LeadRepositoryImpl implements LeadRepository {
     private final LeadJpaRepository leadRepository;
-    private final AddressJpaRepository addressRepository;
     private final ConversionService conversionService;
 
     @Override

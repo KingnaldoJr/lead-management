@@ -1,5 +1,6 @@
 package dev.rmjr.leadmanagement.domain.entity;
 
+import dev.rmjr.leadmanagement.domain.util.Patterns;
 import lombok.Builder;
 import lombok.Getter;
 
@@ -44,7 +45,7 @@ public class Lead {
         if (name.length() < 3 || name.length() > 100)
             throw new IllegalArgumentException("name must be between 3 and 100 characters");
 
-        if (!name.matches("[\\p{L}\\s]*"))
+        if (!name.matches(Patterns.NAME))
             throw new IllegalArgumentException("name must contain only letters and spaces");
 
         this.name = name;
@@ -57,7 +58,7 @@ public class Lead {
         if (email.length() < 8 || email.length() > 255)
             throw new IllegalArgumentException("email must be between 3 and 255 characters");
 
-        if (!email.matches("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$"))
+        if (!email.matches(Patterns.EMAIL))
             throw new IllegalArgumentException("email must be a valid email address");
 
         this.email = email;
