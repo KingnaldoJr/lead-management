@@ -1,13 +1,13 @@
-package dev.rmjr.leadregistry;
+package dev.rmjr.leadmanagement;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class LeadregistryApplication {
+public class LeadManagementApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(LeadregistryApplication.class, args);
+		SpringApplication.run(LeadManagementApplication.class, args);
 	}
 
 }
