@@ -12,6 +12,6 @@ public interface AddressEntityToAddressConverter extends Converter<AddressEntity
 
     @Override
     @Named("AddressEntityToAddress")
-    @Mapping(target = "zipCode", source = "zip")
+    @Mapping(target = "zipCode", source = "zipcode")
     Address convert(AddressEntity source);
 }

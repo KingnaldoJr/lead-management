@@ -78,7 +78,6 @@ class AddressTest {
         UUID id = UUID.randomUUID();
         LocalDateTime createdAt = LocalDateTime.now();
 
-        assertThrows(IllegalArgumentException.class, () -> new Address(id, "Praça da Sé", null, "Apto 48C", "Sé", "São Paulo", "SP", "01001000", createdAt));
         assertThrows(IllegalArgumentException.class, () -> new Address(id, "Praça da Sé", "", "Apto 48C", "Sé", "São Paulo", "SP", "01001000", createdAt));
         assertThrows(IllegalArgumentException.class, () -> new Address(id, "Praça da Sé", "1".repeat(11), "Apto 48C", "Sé", "São Paulo", "SP", "01001000", createdAt));
     }

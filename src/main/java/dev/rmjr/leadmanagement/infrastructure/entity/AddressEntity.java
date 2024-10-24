@@ -26,7 +26,7 @@ public class AddressEntity {
     private String neighborhood;
     private String city;
     private String state;
-    private String zip;
+    private String zipcode;
 
     @CreatedDate
     private String createdAt;

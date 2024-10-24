@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS addresses (
     neighborhood VARCHAR(100) NOT NULL,
     city VARCHAR(100) NOT NULL,
     state VARCHAR(100) NOT NULL,
-    zip INTEGER NOT NULL,
+    zipcode VARCHAR(8) NOT NULL,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (id)
 );
@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS leads (
 
 CREATE TABLE IF NOT EXISTS zipcode_search_history (
   id UUID NOT NULL,
-  zipcode INTEGER NOT NULL,
+  zipcode VARCHAR(8) NOT NULL,
   created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   response JSONB,
   PRIMARY KEY (id)

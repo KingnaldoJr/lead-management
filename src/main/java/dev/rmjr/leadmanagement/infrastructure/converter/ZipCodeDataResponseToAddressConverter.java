@@ -17,7 +17,7 @@ public interface ZipCodeDataResponseToAddressConverter extends Converter<ZipCode
     @Mapping(target = "neighborhood", source = "bairro")
     @Mapping(target = "city", source = "localidade")
     @Mapping(target = "state", source = "uf")
-    @Mapping(target = "zipCode", source = "cep")
+    @Mapping(target = "zipCode", expression = "java(zipCodeDataResponse.getCep().replaceAll(\"-\", \"\"))")
     @Mapping(target = "createdAt", expression = "java(java.time.LocalDateTime.now())")
     Address convert(ZipCodeDataResponse zipCodeDataResponse);
 }

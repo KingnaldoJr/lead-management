@@ -1,7 +1,7 @@
 package dev.rmjr.leadmanagement.infrastructure.entity;
 
-import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
 import dev.rmjr.leadmanagement.domain.entity.Address;
+import io.hypersistence.utils.hibernate.type.json.JsonBinaryType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;

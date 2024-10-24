@@ -1,4 +1,4 @@
-package dev.rmjr.leadmanagement.infrastructure.exception;
+package dev.rmjr.leadmanagement.application.exception;
 
 public class NotFoundException extends RuntimeException {
     public NotFoundException(String message) {
