@@ -1,0 +1,19 @@
+services:
+  postgres:
+    image: 'postgres:latest'
+    environment:
+      - 'POSTGRES_DB=leadmanagement'
+      - 'POSTGRES_USER=santander'
+      - 'POSTGRES_PASSWORD=supersecretpassword'
+    volumes:
+      - ./local-dev/database/data:/var/lib/postgresql/data
+      - ./local-dev/database/create_database.sql:/docker-entrypoint-initdb.d/create_database.sql
+    ports:
+      - '5432:5432'
+  wiremock:
+    image: 'wiremock/wiremock:latest'
+    entrypoint: [ "/docker-entrypoint.sh", "--global-response-templating", "--disable-gzip", "--verbose" ]
+    volumes:
+      - ./local-dev/mock:/home/wiremock
+    ports:
+      - '8080:8080'

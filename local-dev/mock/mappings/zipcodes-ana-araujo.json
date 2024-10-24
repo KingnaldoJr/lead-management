@@ -1,0 +1,14 @@
+{
+  "name" : "Get ZipCode data Ana Araújo",
+  "request" : {
+    "urlPath" : "/zipcodes/03274000",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "body" : "{\"cep\":\"03274000\",\"logradouro\":\"Rua Dona Ana Araújo de Paula\",\"complemento\":\"\",\"unidade\":\"\",\"bairro\":\"Vila Santa Clara\",\"localidade\":\"São Paulo\",\"uf\":\"SP\",\"estado\":\"São Paulo\",\"regiao\":\"Sudeste\"}",
+    "headers" : {
+      "Content-Type" : "application/json"
+    }
+  }
+}
