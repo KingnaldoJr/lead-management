@@ -1,11 +1,10 @@
 package dev.rmjr.leadmanagement.infrastructure.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 
+import java.sql.Timestamp;
 import java.util.UUID;
 
 @Getter
@@ -28,6 +27,7 @@ public class AddressEntity {
     private String state;
     private String zipcode;
 
+    @Temporal(TemporalType.TIMESTAMP)
     @CreatedDate
-    private String createdAt;
+    private Timestamp createdAt;
 }

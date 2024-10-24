@@ -11,5 +11,6 @@ public interface LeadToLeadEntityConverter extends Converter<Lead, LeadEntity> {
 
     @Override
     @Mapping(target = "address", qualifiedByName = "AddressToAddressEntity")
+    @Mapping(target = "createdAt", expression = "java(java.sql.Timestamp.valueOf(source.getCreatedAt()))")
     LeadEntity convert(Lead source);
 }

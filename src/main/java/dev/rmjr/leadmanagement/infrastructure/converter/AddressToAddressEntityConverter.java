@@ -13,5 +13,6 @@ public interface AddressToAddressEntityConverter extends Converter<Address, Addr
     @Override
     @Named("AddressToAddressEntity")
     @Mapping(target = "zipcode", source = "zipCode")
+    @Mapping(target = "createdAt", expression = "java(java.sql.Timestamp.valueOf(source.getCreatedAt()))")
     AddressEntity convert(Address source);
 }

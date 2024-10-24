@@ -4,7 +4,7 @@ CREATE TABLE IF NOT EXISTS addresses (
     id UUID NOT NULL,
     street VARCHAR(255) NOT NULL,
     number VARCHAR(10) NOT NULL,
-    complement VARCHAR(100) NOT NULL,
+    complement VARCHAR(100) NULL,
     neighborhood VARCHAR(100) NOT NULL,
     city VARCHAR(100) NOT NULL,
     state VARCHAR(100) NOT NULL,
@@ -27,6 +27,6 @@ CREATE TABLE IF NOT EXISTS zipcode_search_history (
   id UUID NOT NULL,
   zipcode VARCHAR(8) NOT NULL,
   created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  response JSONB,
+  response JSONB NOT NULL,
   PRIMARY KEY (id)
 );
