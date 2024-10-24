@@ -49,8 +49,7 @@ public class Address {
     }
 
     public void setNumber(String number) {
-        if (number == null)
-            throw new IllegalArgumentException("number cannot be null");
+        if (number == null) return;
 
         if (number.isEmpty() || number.length() > 10)
             throw new IllegalArgumentException("number must be between 1 and 10 characters");

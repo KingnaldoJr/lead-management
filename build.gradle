@@ -4,6 +4,7 @@ buildscript {
 		lombokMapstructBindingVersion = '0.2.0'
 		mapStructVersion = '1.6.2'
 		springBootVersion = '3.3.4'
+		springCloudVersion = '2023.0.3'
 		springDependencyManagementVersion = '1.1.6'
 	}
 }
@@ -33,10 +34,24 @@ repositories {
 	mavenCentral()
 }
 
+dependencyManagement {
+	imports {
+		mavenBom "org.springframework.boot:spring-boot-dependencies:${springBootVersion}"
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+	}
+}
+
 dependencies {
 	// Core Dependencies
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+
+	// Database
+	runtimeOnly 'org.postgresql:postgresql'
+	implementation "com.vladmihalcea:hibernate-types-60:${hibernateTypesVersion}"
+
+	// OpenFeign
+	implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
 
 	// Code Generation
 	implementation "org.mapstruct:mapstruct:${mapStructVersion}"
@@ -47,10 +62,6 @@ dependencies {
 
 	// Dev Tools
 	developmentOnly 'org.springframework.boot:spring-boot-docker-compose'
-
-	// Database
-	runtimeOnly 'org.postgresql:postgresql'
-	implementation "com.vladmihalcea:hibernate-types-60:${hibernateTypesVersion}"
 
 	// Testing
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
