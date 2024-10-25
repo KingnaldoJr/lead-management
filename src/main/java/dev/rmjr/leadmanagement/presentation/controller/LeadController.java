@@ -7,6 +7,8 @@ import dev.rmjr.leadmanagement.domain.entity.Lead;
 import dev.rmjr.leadmanagement.domain.util.Patterns;
 import dev.rmjr.leadmanagement.presentation.dto.request.LeadRequest;
 import dev.rmjr.leadmanagement.presentation.dto.response.LeadResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import io.swagger.v3.oas.annotations.tags.Tags;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
@@ -19,6 +21,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
+@Tag(name = "Leads")
 @RequiredArgsConstructor
 @Validated
 @RequestMapping("/leads")

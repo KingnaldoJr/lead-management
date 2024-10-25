@@ -6,6 +6,8 @@ buildscript {
 		springBootVersion = '3.3.4'
 		springCloudVersion = '2023.0.3'
 		springDependencyManagementVersion = '1.1.6'
+		springDocPluginVersion = '1.9.0'
+		springDocVersion = '2.6.0'
 	}
 }
 
@@ -13,6 +15,7 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version "${springBootVersion}"
 	id 'io.spring.dependency-management' version "${springDependencyManagementVersion}"
+	id 'org.springdoc.openapi-gradle-plugin' version "${springDocPluginVersion}"
 }
 
 group = 'dev.rmjr'
@@ -61,8 +64,8 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	annotationProcessor "org.projectlombok:lombok-mapstruct-binding:${lombokMapstructBindingVersion}"
 
-	// Dev Tools
-	developmentOnly 'org.springframework.boot:spring-boot-docker-compose'
+	// OpenAPI
+	implementation "org.springdoc:springdoc-openapi-starter-webmvc-ui:${springDocVersion}"
 
 	// Testing
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
@@ -74,6 +77,10 @@ compileJava {
 		'-Amapstruct.defaultComponentModel=spring',
 		'-Amapstruct.unmappedTargetPolicy=ERROR'
 	]
+}
+
+openApi {
+	apiDocsUrl.set("http://localhost:8081/v3/api-docs")
 }
 
 tasks.named('test') {

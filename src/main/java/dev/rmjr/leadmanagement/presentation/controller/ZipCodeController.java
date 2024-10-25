@@ -2,6 +2,7 @@ package dev.rmjr.leadmanagement.presentation.controller;
 
 import dev.rmjr.leadmanagement.application.usecase.GetAddressDataByZipCodeUseCase;
 import dev.rmjr.leadmanagement.presentation.dto.response.ZipCodeResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.convert.ConversionService;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+@Tag(name = "ZipCodes")
 @RequiredArgsConstructor
 @Validated
 @RequestMapping("/zipcodes")
